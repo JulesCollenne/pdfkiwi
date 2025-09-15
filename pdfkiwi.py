@@ -513,7 +513,7 @@ class MainWindow(QMainWindow):
         # Fallback: pdfinfo
         if command_exists("pdfinfo"):
             try:
-                out = subprocess.checkoutput(["pdfinfo", path], text=True, stderr=subprocess.STDOUT)
+                out = subprocess.check_output(["pdfinfo", path], text=True, stderr=subprocess.STDOUT)
                 for line in out.splitlines():
                     if line.lower().startswith("pages:"):
                         return int(line.split(":")[1].strip())
